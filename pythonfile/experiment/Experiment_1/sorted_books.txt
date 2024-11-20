@@ -1,0 +1,3 @@
+Book1 Publisher1 19.99 50
+Book2 Publisher2 25.50 30
+Book3 Publisher3 15.75 100
