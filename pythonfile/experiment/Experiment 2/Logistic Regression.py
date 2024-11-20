@@ -1,12 +1,12 @@
-import numpy as np
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV
 from sklearn.preprocessing import StandardScaler
 
+
 #加载数据
-train_data = pd.read_csv('Experiment//train.txt',header=None, delimiter="\t")
-test_data = pd.read_csv('Experiment//test.txt',header=None, delimiter="\t")
+train_data = pd.read_csv('./train.txt',header=None, delimiter="\t")
+test_data = pd.read_csv('./test.txt',header=None, delimiter="\t")
 
 # 分离训练数据的特征和目标
 X_train = train_data.iloc[:, :-1].values  # 前23列为特征
