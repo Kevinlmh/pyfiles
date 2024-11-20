@@ -18,7 +18,6 @@ X_norm = (X - X_mean) / X_std
 def gradient_descent(X, y, alpha, iterations):
     m = len(X)
     w_0, w_1 = np.random.random(), np.random.random()  # 初始化参数
-    #loss_history = []
 
     for _ in range(iterations):
         y_pred = w_0 + w_1 * X
@@ -32,17 +31,13 @@ def gradient_descent(X, y, alpha, iterations):
         w_0 -= alpha * grad_0
         w_1 -= alpha * grad_1
 
-        # 记录损失
-        #loss = np.sum(error**2) / (2 * m)
-        #loss_history.append(loss)
 
-    return w_0, w_1 #loss_history
+    return w_0, w_1
 
 # 不同学习率设置
 learning_rates = [0.01, 0.1, 1, 10]
 iterations = 100
 
-# 存储结果
 results = {}
 
 for alpha in learning_rates:
@@ -56,8 +51,6 @@ for alpha in learning_rates:
         "pre_y": y_pred
     }
 
-
-# 打印模型参数和最终损失
 for alpha, result in results.items():
     print(f"Learning Rate: {alpha}")
     print(f"  w_0: {result['w_0']:.4f}, w_1: {result['w_1']:.4f}")
@@ -65,4 +58,3 @@ for alpha, result in results.items():
     y_pred = result["pre_y"]
     print(y_pred)
     print("-" * 30)
-
