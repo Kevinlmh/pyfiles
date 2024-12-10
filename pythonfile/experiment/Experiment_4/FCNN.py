@@ -6,7 +6,7 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.metrics import mean_squared_error, r2_score
 from keras import models, layers, optimizers
 
-# 1. 加载数据
+# 加载数据
 column_names = [
     "mpg", "cylinders", "displacement", "horsepower", "weight",
     "acceleration", "model_year", "origin", "car_name"
@@ -34,12 +34,12 @@ numerical_features_scaled = scaler.fit_transform(numerical_features)
 # 合并数值特征和编码后的类别特征
 processed_features = np.hstack((numerical_features_scaled, categorical_encoded))
 
-# 3. 数据集拆分（后 20% 为测试集）
+# 数据集拆分（后 20% 为测试集）
 X_train, X_test, y_train, y_test = train_test_split(
     processed_features, target, test_size=0.2, random_state=42
 )
 
-# 4. 构建神经网络
+# 构建神经网络
 model = models.Sequential([
     layers.Dense(64, input_dim=X_train.shape[1], activation='relu'),
     layers.Dense(32, activation='relu'),
@@ -48,10 +48,10 @@ model = models.Sequential([
 
 model.compile(optimizer=optimizers.SGD(learning_rate=0.001), loss='mean_squared_error')
 
-# 5. 训练模型
+# 训练模型
 history = model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=100, batch_size=30, verbose=1)
 
-# 6. 绘制训练误差和验证误差
+# 绘制训练误差和验证误差
 epoch_list = list(range(0, 100))
 train_loss = history.history['loss']
 test_list = history.history['val_loss']
@@ -72,7 +72,7 @@ plt.legend(loc='upper right')
 plt.grid(True)
 plt.show()
 
-# 7. 模型评估
+# 模型评估
 y_pred = model.predict(X_test)
 
 # 计算 R² 和 MSE
