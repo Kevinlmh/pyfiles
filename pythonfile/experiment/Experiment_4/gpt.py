@@ -51,19 +51,14 @@ epoch_list = list(range(0, 100))
 train_loss = history.history['loss']
 test_loss = history.history['val_loss']
 
-plt.plot(epoch_list, train_loss, label="Training Loss")
+# 绘制训练误差和测试误差曲线
+plt.figure(figsize=(10, 6))
+plt.plot(history.history['loss'], label='Training Loss', color='blue')
+plt.plot(history.history['val_loss'], label='Testing Loss', color='red')
+plt.xlabel('Epochs')
 plt.ylabel('Loss')
-plt.xlabel('Epoch')
-plt.title('Training Loss per Epoch')
-plt.legend(loc='upper right')
-plt.grid(True)
-plt.show()
-
-plt.plot(epoch_list, test_loss, label="Testing Loss")
-plt.ylabel('Loss')
-plt.xlabel('Epoch')
-plt.title('Testing Loss per Epoch')
-plt.legend(loc='upper right')
+plt.title('Loss per Epoch')
+plt.legend()
 plt.grid(True)
 plt.show()
 
