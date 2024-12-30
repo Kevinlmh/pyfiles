@@ -6,4 +6,4 @@ for i in range(3):
         print(a[i]**0.5,end=" ")
     except AssertionError: print("AE",end=" ")
     except IndexError: print("IE",end=" ")
-    except: print("UnknownError",end=" ")
+    except Exception as e: print("UnknownError",end=" ")
