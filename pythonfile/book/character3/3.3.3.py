@@ -1,9 +1,5 @@
 import numpy as np
 
-from pythonfile.book.character3.bgd_optimizer import bgd_optimizer
-from pythonfile.experiment.Experiment_2.regression import init_W
-
-
 def sgd_optimizer(target_fn, grad_fn, init_W, X, Y, lr=0.0001, tolerance=1e-12, max_iter=1000000000):
     W, rate = init_W, lr
     min_W, min_target_value = None, float("inf")
@@ -37,7 +33,7 @@ Y = np.array([270,280,295,310,335])
 X = normalize(X_train)
 np.random.seed(0)
 init_W = np.array([np.random.random(), np.random.random(), np.random.random()])
-i, W = bgd_optimizer(target, grad, init_W, X, Y)
+i, W = sgd_optimizer(target, grad, init_W, X, Y)
 if W is not None:
     print(W)
 else:
