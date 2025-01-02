@@ -1,6 +1,6 @@
 import numpy as np
 from sklearn.linear_model import LinearRegression
-
+#sklearn方法
 X_train = np.array([[80, 2, 4], [87, 3, 5], [100, 3, 1], [110, 3, 8], [120, 4, 7]])
 X_test = np.array([[80, 2, 6], [90, 3, 7], [96, 2, 5], [105, 3, 4]])
 Y_train = np.array([270, 280, 295, 330, 335])
